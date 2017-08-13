@@ -46,10 +46,4 @@ scoreWord word =
         characters =
             String.toList <| String.toLower <| word
     in
-        List.foldl
-            (\letter total ->
-                total
-                    + ((\_ -> scoreLetter letter) <| (Debug.log <| toString letter) <| toString <| scoreLetter letter)
-            )
-            0
-            characters
+        List.foldl (\letter total -> total + scoreLetter letter) 0 characters
